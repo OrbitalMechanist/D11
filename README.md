@@ -1,11 +1,11 @@
-## My Web Application (Title)
+## D11 COVID CHECKLIST
 
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Contents](#content)
 
 ## General Info
-This browser based web application to ...
+This browser based web application will act to provide a customizable checklist for businisses to ensure their clients are not infectious.
 	
 ## Technologies
 Technologies used for this project:
