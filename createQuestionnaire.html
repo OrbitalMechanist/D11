@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Account Home</title>
+    <title>Create Survey</title>
     <meta name="comp1800 boilerplate code" content="my bcit project">
     <meta name="author" content="BCIT">
 
@@ -17,28 +17,31 @@
     <!-- Optional CSS of your own               -->
     <link type="text/css" rel="stylesheet" href="styles/app.css" />
 <style>
-  #homeEmpty {
-    margin: 0;
+  html {
+    background-color: skyblue;
+  }
+
+  #questionnaireContainer {
+    width: 30rem;
+    margin-top: 4rem;
     position: absolute;
-    top: 50%;
     left: 50%;
     transform: translateX(-50%);
-    width: 30rem;
  }
 
-  #homeEmpty > * {
-    display:block;
+  #questionnaireContainer > * {
+    margin-top: 1rem;
     text-align: center;
-    margin-bottom: 1rem;
+    background-color: white;
  }
 
-  #homeEmpty > a {
-    font-size: 2rem;
-    width: 6em;
-    margin: 0 auto;
-    border-radius: 5%;
-    background-color: cadetblue;
+  #newQuestion {
+    margin-top: 2rem;
   }
+  .questionWrapper > label {
+    margin-right: 1rem;
+  }
+
 </style>
 </head>
 
@@ -65,9 +68,21 @@
         </div>
     </nav>
 
-    <div id="homeEmpty">
-      <h1>You currently have no<br>questionnaires</h1>
-      <a class="nav-link" href="createQuestionnaire.html">Create One</a>
+    <div id="questionnaireContainer">
+      <div id="picture">
+        <div class="nav-link" id="imagePlaceholder">Click to add an image</div>
+      </div>
+      <div class="nav-link" id="title">Title</div>
+      <div class="nav-link" id="description">Description</div>
+      <div class="nav-link" id="newQuestion">Click to add a question</div>
+      <div class="questionWrapper">
+        <p>Have you or anyone you know been in contact with a big scary spider
+          in the past three weeks?</p>
+        <input type="radio" id="yes" name="answer" value="Yes">
+        <label for="yes">Yes</label>
+        <input type="radio" id="no" name="answer" value="No">
+        <label for="no">No</label>
+      </div>
     </div>
     <!----------------------------------------------->
     <!-- JS: Boostrap, Firebase, API related    -->
