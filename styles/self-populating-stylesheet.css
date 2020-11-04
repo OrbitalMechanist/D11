@@ -1,0 +1,34 @@
+﻿body{
+    padding: 0;
+    margin: 0;
+}
+#content
+{
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+.listcontainer {
+    margin: 10px;
+    border: 5px solid #ff1122;
+    border-radius: 20px;
+    width: 100%;
+    height: 20vh;
+}
+.containerImage
+{
+    float: left;
+    max-height: 90%;
+    max-width: 20%;
+    width: auto;
+    clip-path: circle(50%);
+}
+.containerName{
+    font-family: Superlume, 'Agency FB', monospace;
+    font-size: 24pt;
+}
+#topDisplay{
+    background-image: linear-gradient(45deg, #ffbbbb, #ff2222);
+    width: 100vw;
+    height: 25vh;
+
+}
