@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Create Survey</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="comp1800 boilerplate code" content="my bcit project">
     <meta name="author" content="BCIT">
 
@@ -18,7 +19,7 @@
     <link type="text/css" rel="stylesheet" href="styles/app.css" />
 <style>
   html {
-    background-color: skyblue;
+    background-color: #d4d4d4;
   }
 
   #questionnaireContainer {
@@ -26,22 +27,77 @@
     margin-top: 4rem;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-52%);
  }
 
   #questionnaireContainer > * {
     margin-top: 1rem;
+    padding: 0 .5rem;
     text-align: center;
     background-color: white;
  }
 
+  #imagePlaceholder{
+    cursor: pointer;
+  }
+
   #newQuestion {
     margin-top: 2rem;
+    cursor: pointer;
   }
+
   .questionWrapper > label {
     margin-right: 1rem;
   }
 
+  .questionWrapper > * {
+    font-size: 1.3rem;
+  }
+
+  [contenteditable][placeholder]:empty:before {
+    content: attr(placeholder);
+    position: relative;
+    color: gray;
+    background-color: transparent;
+  }
+
+  #title {
+    overflow: auto;
+    font-weight: bold;
+    font-size: 1.6rem;
+  }
+
+  #description[contenteditable] {
+    overflow: auto;
+    font-size: 1.3rem;
+    text-align: left;
+  }
+
+      /************************************************************************
+      MEDIA QUERIES
+      ************************************************************************/
+     /* for 630px or less */
+      @media screen and (max-width: 530px) {
+
+        * {
+          font-size: .8rem;
+        }
+      }
+
+     /* for 430px or less */
+      @media screen and (max-width: 430px) {
+
+        * {
+          font-size: .6rem;
+        }
+      }
+
+      /* for 337px or less */
+      @media screen and (max-width: 337px) {
+
+        * {
+          font-size: .5rem;
+        }
 </style>
 </head>
 
@@ -70,17 +126,64 @@
 
     <div id="questionnaireContainer">
       <div id="picture">
-        <div class="nav-link" id="imagePlaceholder">Click to add an image</div>
+        <div id="imagePlaceholder">Click to add an image</div>
       </div>
-      <div class="nav-link" id="title">Title</div>
-      <div class="nav-link" id="description">Description</div>
-      <div class="nav-link" id="newQuestion">Click to add a question</div>
+      <div id="title" contenteditable placeholder="Title..." oninput="if(this.innerHTML.trim() ==='<br>')this.innerHTML=''"></div>
+      <div id="description" contenteditable placeholder="Description..." oninput="if(this.innerHTML.trim() ==='<br>')this.innerHTML=''"></div>
+      <div id="newQuestion">Click to add a question</div>
       <div class="questionWrapper">
-        <p>Have you or anyone you know been in contact with a big scary spider
-          in the past three weeks?</p>
-        <input type="radio" id="yes" name="answer" value="Yes">
+        <p>Do you have a fever or experienced fever within the past 14 days?</p>
+        <input type="radio" id="yes" name="question1" value="Yes">
         <label for="yes">Yes</label>
-        <input type="radio" id="no" name="answer" value="No">
+        <input type="radio" id="no" name="question1" value="No">
+        <label for="no">No</label>
+      </div>
+
+      <div class="questionWrapper">
+        <p>Have you experienced a recent onset of respiratory problems, such as a cough or difficulty in breathing within the past 14 days?</p>
+        <input type="radio" id="yes" name="question2" value="Yes">
+        <label for="yes">Yes</label>
+        <input type="radio" id="no" name="question2" value="No">
+        <label for="no">No</label>
+      </div>
+
+      <div class="questionWrapper">
+        <p>Have you, within the past 14 days, traveled outside of the country?</p>
+        <input type="radio" id="yes" name="question3" value="Yes">
+        <label for="yes">Yes</label>
+        <input type="radio" id="no" name="question3" value="No">
+        <label for="no">No</label>
+      </div>
+
+     <div class="questionWrapper">
+        <p>Have you come into contact with a patient with confirmed 2019-nCoV infection within the past 14 days?</p>
+        <input type="radio" id="yes" name="question4" value="Yes">
+        <label for="yes">Yes</label>
+        <input type="radio" id="no" name="question4" value="No">
+        <label for="no">No</label>
+      </div>
+
+     <div class="questionWrapper">
+        <p>Have you come into contact with people from the neighborhood/region reported to be infected according to the World Health Organization who have recently documented fever or respiratory problems within the past 14 days?</p>
+        <input type="radio" id="yes" name="question5" value="Yes">
+        <label for="yes">Yes</label>
+        <input type="radio" id="no" name="question5" value="No">
+        <label for="no">No</label>
+      </div>
+
+     <div class="questionWrapper">
+        <p>Are there at least two people with documented experience of fever or respiratory problems within the last 14 days having close contact with you?</p>
+        <input type="radio" id="yes" name="question6" value="Yes">
+        <label for="yes">Yes</label>
+        <input type="radio" id="no" name="question6" value="No">
+        <label for="no">No</label>
+      </div>
+
+     <div class="questionWrapper">
+        <p>Have you recently participated in any gathering, meetings, or had close contact with many unacquainted people?</p>
+        <input type="radio" id="yes" name="question7" value="Yes">
+        <label for="yes">Yes</label>
+        <input type="radio" id="no" name="question7" value="No">
         <label for="no">No</label>
       </div>
     </div>
@@ -107,5 +210,8 @@
     <!-- Your own Firebase API key information -->
     <script src="scripts/firebase_api_preCovidChecklist.js"> </script>
 
+    <!-- Control Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="scripts/createQuestionnaire.js"></script>
 </body>
 </html>
