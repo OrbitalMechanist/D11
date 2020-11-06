@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+  <head>
     <meta charset="utf-8">
     <title>Create Survey</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -16,121 +16,58 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
 
     <!-- Optional CSS of your own               -->
-    <link type="text/css" rel="stylesheet" href="styles/app.css" />
-<style>
-  html {
-    background-color: #d4d4d4;
-  }
+    <link type="text/css" rel="stylesheet" href="styles/createQuestionnaire.css" />
+  </head>
 
-  #questionnaireContainer {
-    width: 30rem;
-    margin-top: 4rem;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-52%);
- }
-
-  #questionnaireContainer > * {
-    margin-top: 1rem;
-    padding: 0 .5rem;
-    text-align: center;
-    background-color: white;
- }
-
-  #imagePlaceholder{
-    cursor: pointer;
-  }
-
-  #newQuestion {
-    margin-top: 2rem;
-    cursor: pointer;
-  }
-
-  .questionWrapper > label {
-    margin-right: 1rem;
-  }
-
-  .questionWrapper > * {
-    font-size: 1.3rem;
-  }
-
-  [contenteditable][placeholder]:empty:before {
-    content: attr(placeholder);
-    position: relative;
-    color: gray;
-    background-color: transparent;
-  }
-
-  #title {
-    overflow: auto;
-    font-weight: bold;
-    font-size: 1.6rem;
-  }
-
-  #description[contenteditable] {
-    overflow: auto;
-    font-size: 1.3rem;
-    text-align: left;
-  }
-
-      /************************************************************************
-      MEDIA QUERIES
-      ************************************************************************/
-     /* for 630px or less */
-      @media screen and (max-width: 530px) {
-
-        * {
-          font-size: .8rem;
-        }
-      }
-
-     /* for 430px or less */
-      @media screen and (max-width: 430px) {
-
-        * {
-          font-size: .6rem;
-        }
-      }
-
-      /* for 337px or less */
-      @media screen and (max-width: 337px) {
-
-        * {
-          font-size: .5rem;
-        }
-</style>
-</head>
-
-<body>
-
+  <body>
     <!-------------------------------------->
     <!-- The following is HTML for layout -->
     <!-------------------------------------->
+
     <!-- Header Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="">Pre-arrival Checklist</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="login.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login.html">login/signup</a>
-                </li>
-            </ul>
-        </div>
+      <a class="navbar-brand" href="accountHome.html">Pre-arrival Checklist</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">login/signup</a>
+          </li>
+        </ul>
+      </div>
     </nav>
 
-    <div id="questionnaireContainer">
-      <div id="picture">
-        <div id="imagePlaceholder">Click to add an image</div>
+    <!-- Save and Cancel Controls -->
+    <div id="controlContainer">
+      <div id="creationControls">
+        <a href="">Save</a>
+        <a href="accountHome.html">Cancel</a>
       </div>
-      <div id="title" contenteditable placeholder="Title..." oninput="if(this.innerHTML.trim() ==='<br>')this.innerHTML=''"></div>
-      <div id="description" contenteditable placeholder="Description..." oninput="if(this.innerHTML.trim() ==='<br>')this.innerHTML=''"></div>
-      <div id="newQuestion">Click to add a question</div>
+    </div>
+
+    <!-- Body of the questionnaire -->
+    <div id="questionnaireContainer">
+      <div class="guide">1. Upload a Banner:</div>
+      <div id="picture">
+        <div class="container">
+            <div>
+              <div class="inputGroup">
+                  <input type="file" id="imgInp">
+              </div>
+            </div>
+        <img id='img-upload'/>
+        </div>
+      </div>
+      <div class="guide">2. Add a title and description:</div>
+      <div id="title" contenteditable placeholder="Click to add a title..." oninput="if(this.innerHTML.trim() ==='<br>')this.innerHTML=''"></div>
+      <div id="description" contenteditable placeholder="Click to add a description..." oninput="if(this.innerHTML.trim() ==='<br>')this.innerHTML=''"></div>
+      <div class="guide">3. Review the questionnaire:</div>
+
       <div class="questionWrapper">
         <p>Do you have a fever or experienced fever within the past 14 days?</p>
         <input type="radio" id="yes" name="question1" value="Yes">
@@ -155,7 +92,7 @@
         <label for="no">No</label>
       </div>
 
-     <div class="questionWrapper">
+      <div class="questionWrapper">
         <p>Have you come into contact with a patient with confirmed 2019-nCoV infection within the past 14 days?</p>
         <input type="radio" id="yes" name="question4" value="Yes">
         <label for="yes">Yes</label>
@@ -163,7 +100,7 @@
         <label for="no">No</label>
       </div>
 
-     <div class="questionWrapper">
+      <div class="questionWrapper">
         <p>Have you come into contact with people from the neighborhood/region reported to be infected according to the World Health Organization who have recently documented fever or respiratory problems within the past 14 days?</p>
         <input type="radio" id="yes" name="question5" value="Yes">
         <label for="yes">Yes</label>
@@ -171,7 +108,7 @@
         <label for="no">No</label>
       </div>
 
-     <div class="questionWrapper">
+      <div class="questionWrapper">
         <p>Are there at least two people with documented experience of fever or respiratory problems within the last 14 days having close contact with you?</p>
         <input type="radio" id="yes" name="question6" value="Yes">
         <label for="yes">Yes</label>
@@ -179,7 +116,7 @@
         <label for="no">No</label>
       </div>
 
-     <div class="questionWrapper">
+      <div class="questionWrapper">
         <p>Have you recently participated in any gathering, meetings, or had close contact with many unacquainted people?</p>
         <input type="radio" id="yes" name="question7" value="Yes">
         <label for="yes">Yes</label>
@@ -187,10 +124,12 @@
         <label for="no">No</label>
       </div>
     </div>
+
     <!----------------------------------------------->
     <!-- JS: Boostrap, Firebase, API related    -->
     <!----------------------------------------------->
-    <!-- Bootstrap libraries from CDN -->
+
+   <!-- Bootstrap libraries from CDN -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
@@ -206,12 +145,12 @@
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
-    
+
     <!-- Your own Firebase API key information -->
     <script src="scripts/firebase_api_preCovidChecklist.js"> </script>
 
     <!-- Control Script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="scripts/createQuestionnaire.js"></script>
-</body>
+  </body>
 </html>
