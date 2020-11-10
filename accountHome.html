@@ -17,9 +17,63 @@
     <!-- Optional CSS of your own               -->
     <link type="text/css" rel="stylesheet" href="styles/app.css" />
 <style>
- #homeEmpty {
- 
+
+  #homeEmpty {
+    margin: 0;
+    position: absolute;
+    top: 20rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30rem;
  }
+
+  #homeEmpty > * {
+    display:block;
+    text-align: center;
+    margin-bottom: 1rem;
+ }
+
+  #homeEmpty > a {
+    background-color: cadetblue;
+    padding: 1rem;
+    margin: 0px auto;
+    border-radius: 5%;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  #homeEmpty > a:hover {
+    background-color: lightblue;
+    color: dimgrey;
+  }
+      /************************************************************************
+      MEDIA QUERIES
+      ************************************************************************/
+     /* for 630px or less */
+      @media screen and (max-width: 530px) {
+
+        * {
+          font-size: .8rem;
+        }
+      }
+
+     /* for 430px or less */
+      @media screen and (max-width: 430px) {
+
+        * {
+          font-size: .6rem;
+        }
+      }
+
+      /* for 337px or less */
+      @media screen and (max-width: 337px) {
+
+        * {
+          font-size: .5rem;
+        }
 </style>
 </head>
 
@@ -47,8 +101,8 @@
     </nav>
 
     <div id="homeEmpty">
-      <h1>You currently have no<br>questionnaires</h1>
-      <a>Create One</a>
+      <h1>You haven't set up a<br>questionnaire</h1>
+      <a href="createQuestionnaire.html">Set Up</a>
     </div>
     <!----------------------------------------------->
     <!-- JS: Boostrap, Firebase, API related    -->
