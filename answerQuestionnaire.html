@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Pre-Arrival Survey</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="comp1800 boilerplate code" content="my bcit project">
+    <meta name="author" content="BCIT">
+
+    <!-- Bootstrap for Mobile-first, and JQuery -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- Firebase CSS for Authentication UI     -->
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+
+    <!-- Optional CSS of your own               -->
+    <link type="text/css" rel="stylesheet" href="styles/pre-arrival-stylesheet.css" />
+  </head>
+
+  <body>
+    <!-------------------------------------->
+    <!-- The following is HTML for layout -->
+    <!-------------------------------------->
+
+    <!-- Body of the questionnaire -->
+    <div id="questionnaireContainer">
+
+      <div class="guide">Please fill out this short questionnaire.</div>
+      <form>
+        <div class="form-row">
+            <input type="text" class="form-control" placeholder="First name">
+        </div>
+        <div class="form-row">
+            <input type="text" class="form-control" placeholder="Last name">
+        </div>
+        <div class="form-row">
+            <input type="email" class="form-control" placeholder="Email Address">
+        </div>
+        <div class="form-row">
+            <input type="tel" class="form-control" placeholder="Phone Number">
+        </div>
+      </form>
+
+      <div id="picture">
+        <div class="container">
+          <img id='img-upload' src="images/SampleBanner.png"/>
+        </div>
+      </div>
+      <div id="title">Placeholder Title for Survey</div>
+      <div id="description">Placeholder summary for the survey repeating. Placeholder summary for the survey repeating.
+        Placeholder summary for the survey repeating. Placeholder summary for the survey repeating.
+        Placeholder summary for the survey repeating.</div>
+
+      <div class="questionWrapper">
+        <p>Do you have a fever or experienced fever within the past 14 days?</p>
+        <input type="radio" id="yes" name="question1" value="Yes">
+        <label for="yes">Yes</label>
+        <input type="radio" id="no" name="question1" value="No">
+        <label for="no">No</label>
+      </div>
+
+      <div class="questionWrapper">
+        <p>Have you experienced a recent onset of respiratory problems, such as a cough or difficulty in breathing within the past 14 days?</p>
+        <input type="radio" id="yes" name="question2" value="Yes">
+        <label for="yes">Yes</label>
+        <input type="radio" id="no" name="question2" value="No">
+        <label for="no">No</label>
+      </div>
+
+      <div class="questionWrapper">
+        <p>Have you, within the past 14 days, traveled outside of the country?</p>
+        <input type="radio" id="yes" name="question3" value="Yes">
+        <label for="yes">Yes</label>
+        <input type="radio" id="no" name="question3" value="No">
+        <label for="no">No</label>
+      </div>
+
+      <div class="questionWrapper">
+        <p>Have you come into contact with a patient with confirmed 2019-nCoV infection within the past 14 days?</p>
+        <input type="radio" id="yes" name="question4" value="Yes">
+        <label for="yes">Yes</label>
+        <input type="radio" id="no" name="question4" value="No">
+        <label for="no">No</label>
+      </div>
+
+      <div class="questionWrapper">
+        <p>Have you come into contact with people from the neighborhood/region reported to be infected according to the World Health Organization who have recently documented fever or respiratory problems within the past 14 days?</p>
+        <input type="radio" id="yes" name="question5" value="Yes">
+        <label for="yes">Yes</label>
+        <input type="radio" id="no" name="question5" value="No">
+        <label for="no">No</label>
+      </div>
+
+      <div class="questionWrapper">
+        <p>Are there at least two people with documented experience of fever or respiratory problems within the last 14 days having close contact with you?</p>
+        <input type="radio" id="yes" name="question6" value="Yes">
+        <label for="yes">Yes</label>
+        <input type="radio" id="no" name="question6" value="No">
+        <label for="no">No</label>
+      </div>
+
+      <div class="questionWrapper">
+        <p>Have you recently participated in any gathering, meetings, or had close contact with many unacquainted people?</p>
+        <input type="radio" id="yes" name="question7" value="Yes">
+        <label for="yes">Yes</label>
+        <input type="radio" id="no" name="question7" value="No">
+        <label for="no">No</label>
+      </div>
+
+      <button type="button" class="btn btn-primary btn-lg btn-block">Submit</button>
+    </div>
+
+    <!----------------------------------------------->
+    <!-- JS: Boostrap, Firebase, API related    -->
+    <!----------------------------------------------->
+
+   <!-- Bootstrap libraries from CDN -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+
+    <!-- Firebase libraries from CDN -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+
+    <!-- Your own Firebase API key information -->
+    <script src="scripts/firebase_api_preCovidChecklist.js"> </script>
+
+    <!-- Control Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="scripts/createQuestionnaire.js"></script>
+  </body>
+</html>
