@@ -1,0 +1,133 @@
+  body {
+    text-align: center;
+  }
+
+  .guide {
+    font-size: 2rem;
+    text-align: left;
+  }
+
+  #creationControls > a {
+    background-color: cadetblue;
+    display: inline-block;
+    padding: .5rem 1rem;
+    margin: 0rem 2rem;
+    width: 10rem;
+    border-radius: 10%;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  #creationControls > a:hover {
+    background-color: lightblue;
+    color: dimgrey;
+  }
+
+  #controlContainer {
+    position: fixed;
+    bottom:0;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+  }
+
+  #creationControls {
+    display: inline-block;
+  }
+
+  #questionnaireContainer {
+    width: 30rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    display: inline-block;
+ }
+
+  #questionnaireContainer > * {
+    margin-top: 1rem;
+    padding: 0 .5rem;
+ }
+
+  #newQuestion {
+    margin-top: 2rem;
+    cursor: pointer;
+  }
+
+  .questionWrapper {
+    border-top: groove;
+  }
+
+  .questionWrapper > label {
+    margin-right: 1rem;
+  }
+
+  .questionWrapper > * {
+    font-size: 1.3rem;
+  }
+
+  [contenteditable][placeholder]:empty:before {
+    content: attr(placeholder);
+    position: relative;
+    color: gray;
+    background-color: transparent;
+  }
+
+  [contenteditable][placeholder]:hover {
+    background-color: white;
+  }
+
+  #title {
+    overflow: auto;
+    font-weight: bold;
+    font-size: 1.6rem;
+  }
+
+  #description {
+    margin-bottom: 5rem;
+  }
+
+  #description[contenteditable] {
+    overflow: auto;
+    font-size: 1.3rem;
+    text-align: left;
+  }
+
+/* Image Upload and Preview */
+#picture {
+  display: inline-block;
+  text-align: center;
+  left: 50%;
+}
+
+#uploadedImage {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+      /************************************************************************
+      MEDIA QUERIES
+      ************************************************************************/
+     /* for 630px or less */
+      @media screen and (max-width: 530px) {
+
+        * {
+          font-size: .8rem;
+        }
+      }
+
+     /* for 430px or less */
+      @media screen and (max-width: 430px) {
+
+        * {
+          font-size: .6rem;
+        }
+      }
+
+      /* for 337px or less */
+      @media screen and (max-width: 337px) {
+
+        * {
+          font-size: .5rem;
+        }
