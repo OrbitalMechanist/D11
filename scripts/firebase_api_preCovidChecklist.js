@@ -21,4 +21,6 @@ var firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
   // Create the Firestore database object
   // Henceforce, any reference to the database can be made with "db"
-  const db = firebase.firestore();
+const db = firebase.firestore();
+const auth = firebase.auth();
+const storage = firebase.storage();

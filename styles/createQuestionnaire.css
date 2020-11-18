@@ -101,7 +101,11 @@
   left: 50%;
 }
 
+<<<<<<< HEAD
 #img-upload {
+=======
+#uploadedImage {
+>>>>>>> orbital-work
     margin-top: 1rem;
     width: 100%;
 }
