@@ -17,9 +17,13 @@ function sendImage() {
     console.log("attempting upload");
     console.log($('#imgInp'));
 
-    var file = $('#imgInp')[0].files[0];
-    targetFileRef.put(file).then(function (snapshot) {
-        console.log('Uploaded.');
-    });
+    if ($('#imgInp')[0].files[0]) {
+        var file = $('#imgInp')[0].files[0];
+        targetFileRef.put(file).then(function (snapshot) {
+            console.log('Uploaded.');
+        });
+    } else {
+        console.log("No new image to upload.");
+    }
 
 }
