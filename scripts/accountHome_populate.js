@@ -9,8 +9,8 @@ class Questionnaire {
 
 //Incoming questionnaires
 var floodSource;
-floodSource = [new Questionnaire("Placeholder Questionnaire", 5), new Questionnaire("The User would probably only have one of these.", 55),
-    new Questionnaire("On Click should construct the results", 0)];
+floodSource;// = [new Questionnaire("Placeholder Questionnaire", 5), new Questionnaire("The User would probably only have one of these.", 55),
+    //new Questionnaire("On Click should construct the results", 0)];
 
 if (Array.isArray(floodSource)) {
     var i;

@@ -18,21 +18,21 @@ if (Array.isArray(floodSource)) {
     var i;
     var currentContainer;
     var tmp;
-    var contentMain = $('#questionnaireContent');
+    var contentMain = $("#questionnaireContent");
 
-    $('<h1/>').appendto("#questionnaireContent").html("Your responses:";
+    $("#questionnaireContent").append("<h1>Your responses:</h1>");
 
     for (i = 0; i < floodSource.length; i++) {
         console.log("flooding");
         currentContainer = $('<div/>').appendTo("#questionnaireContent");
-        $('<h1/>').appendTo(currentContainer).html(floodSource[i].firstName + " " + floodSource[i].lastName);
-        $('<span/>').appendTo(currentContainer).html(floodSource[i].phoneNumber);
+        $("<h1/>").appendTo(currentContainer).html(floodSource[i].firstName + " " + floodSource[i].lastName);
+        $("<h1/>").appendTo(currentContainer).html(floodSource[i].phoneNumber);
         if (floodSource[i].pass == false) {
             $(currentContainer).css("background-color", "red");
         }
     }
 } else {
-    $('<h1/>').appendTo('questionnaireContent').html("There are currently no responses");
+    $("#questionnaireContent").append("<h1>There are currently no responses</h1>");
 }
 
 });
