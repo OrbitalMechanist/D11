@@ -10,7 +10,7 @@
 
     <!-- Bootstrap for Mobile-first, and JQuery -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/my_bootstrap.css" />
 
     <!-- Firebase CSS for Authentication UI     -->
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
@@ -42,20 +42,12 @@
       </div>
     </nav>
 
-    <!-- Save and Cancel Controls -->
-    <div id="controlContainer">
-      <div id="creationControls">
-        <a id="saveButton" onclick="sendImage()">Save</a>
-        <a href="accountHome.html">Cancel</a>
-      </div>
-    </div>
-
     <!-- Body of the questionnaire -->
     <div id="questionnaireContainer">
         <!-- Image Upload-->
         <div class="guide">1. Upload a Banner:</div>
         <div id="picture">
-            <div class="container">
+            <div>
                 <div>
                     <div class="inputGroup">
                         <input type="file" id="imgInp">
@@ -128,6 +120,14 @@
             <input type="radio" id="no" name="question7" value="No">
             <label for="no">No</label>
         </div>
+    </div>
+
+    <!-- Save and Cancel Controls -->
+    <div id="controlContainer">
+      <div id="creationControls">
+        <a id="saveButton" onclick="sendImage()">Save</a>
+        <a href="accountHome.html">Cancel</a>
+      </div>
     </div>
 
     <!----------------------------------------------->

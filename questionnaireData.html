@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Account Home</title>
+    <title>Questionnaire Data</title>
     <meta name="comp1800 boilerplate code" content="my bcit project">
     <meta name="author" content="BCIT">
 
     <!-- Bootstrap for Mobile-first, and JQuery -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="styles/my_bootstrap.css" />
+    <link rel="stylesheet" href="styles/my_bootstrap.css">
 
     <!-- Firebase CSS for Authentication UI     -->
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
@@ -20,11 +20,12 @@
   body {
     background-color: #8FDBD1;
   }
+
   a {
     display: contents;
   }
 
-  #homeContent {
+  #questionnaireContent {
     margin: 0;
     position: absolute;
     top: 10rem;
@@ -33,13 +34,13 @@
     width: 30rem;
  }
 
-  #homeContent > * {
-    display: block;
+  #questionnaireContent > * {
+    display:block;
     text-align: center;
     margin-bottom: 1rem;
  }
 
-  #homeContent > div, #homeContent > a {
+  #questionnaireContent > div, #questionnaireContent > a {
     background-color: #00425b;
     padding: 1rem;
     border-radius: 5%;
@@ -50,11 +51,7 @@
     text-decoration: none;
   }
 
-  #homeContent > div:hover, #homeContent > a:hover {
-    background-color: #0078a7;
-  }
-
-  homecontent > *{
+  questionnaireContent > *{
     overflow-wrap: break-word;
   }
       /************************************************************************
@@ -108,7 +105,7 @@
         </div>
     </nav>
 
-    <div id="homeContent">
+    <div id="questionnaireContent">
 
     </div>
 
@@ -139,7 +136,7 @@
     
     <!-- Your own Firebase API key information -->
     <script src="scripts/firebase_api_preCovidChecklist.js"> </script>
-    <script src="./scripts/accountHome_populate.js"></script>
+    <script src="./scripts/questionnaireData_populate.js"></script>
 
 </body>
 </html>

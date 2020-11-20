@@ -1,5 +1,6 @@
   body {
     text-align: center;
+    background-color: #8FDBD1;
   }
 
   .guide {
@@ -8,12 +9,12 @@
   }
 
   #creationControls > a {
-    background-color: cadetblue;
+    background-color: #00425b;
     display: inline-block;
     padding: .5rem 1rem;
     margin: 0rem 2rem;
     width: 10rem;
-    border-radius: 10%;
+    border-radius: 5%;
     color: white;
     font-size: 1.5rem;
     font-weight: 500;
@@ -22,13 +23,12 @@
   }
 
   #creationControls > a:hover {
-    background-color: lightblue;
-    color: dimgrey;
+    background-color: #0078a7;
   }
 
   #controlContainer {
-    position: fixed;
-    bottom:0;
+    position: relative;
+    bottom: 2rem;
     z-index: 1;
     width: 100%;
     text-align: center;
@@ -43,11 +43,11 @@
     margin-top: 4rem;
     margin-bottom: 4rem;
     display: inline-block;
+    background-color: white;
  }
 
   #questionnaireContainer > * {
     margin-top: 1rem;
-    padding: 0 .5rem;
  }
 
   #newQuestion {
@@ -94,17 +94,22 @@
     text-align: left;
   }
 
-/* Image Upload and Preview */
-#picture {
-  display: inline-block;
-  text-align: center;
-  left: 50%;
-}
+  /* Image Upload and Preview */
+  #picture {
+    display: inline-block;
+    text-align: center;
+  }
 
-#img-upload {
+  #uploadedImage {
+    max-width: 100%;
+    max-height: 30rem;
+  }
+
+  #img-upload {
     margin-top: 1rem;
-    width: 100%;
-}
+    max-width: 30rem;
+    max-height: 30rem;
+  }
 
       /************************************************************************
       MEDIA QUERIES
