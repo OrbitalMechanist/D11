@@ -8,7 +8,7 @@
   }
 
   #creationControls > a {
-    background-color: cadetblue;
+    background-color: #13485c;
     display: inline-block;
     padding: .5rem 1rem;
     margin: 0rem 2rem;
@@ -22,7 +22,7 @@
   }
 
   #creationControls > a:hover {
-    background-color: lightblue;
+    background-color: 43b5e1;
     color: dimgrey;
   }
 
