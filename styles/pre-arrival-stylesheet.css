@@ -93,6 +93,14 @@
     font-size: 1.3rem;
     text-align: left;
   }
+  /* Firebase Login Container */
+  #firebaseui-auth-container {
+    position: absolute;
+    left: 50%;
+    top: 25rem;
+    transform: translate(-50%, -50%);
+    width: 30rem;
+  }
 
   /* Image Upload and Preview */
   #picture {

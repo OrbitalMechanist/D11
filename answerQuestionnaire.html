@@ -28,18 +28,18 @@
     <div id="questionnaireContainer">
 
       <div class="guide">Please fill out this short questionnaire.</div>
-      <form>
+      <form name="contactInfo">
         <div class="form-row">
-            <input type="text" class="form-control" placeholder="First name">
+            <input type="text" id="firstName" class="form-control" placeholder="First name">
         </div>
         <div class="form-row">
-            <input type="text" class="form-control" placeholder="Last name">
+            <input type="text" id="lastName" class="form-control" placeholder="Last name">
         </div>
         <div class="form-row">
-            <input type="email" class="form-control" placeholder="Email Address">
+            <input type="email" id="email" class="form-control" placeholder="Email Address">
         </div>
         <div class="form-row">
-            <input type="tel" class="form-control" placeholder="Phone Number">
+            <input type="tel" id="phoneNumber" class="form-control" placeholder="Phone Number">
         </div>
       </form>
 
@@ -55,61 +55,61 @@
 
       <div class="questionWrapper">
         <p>Do you have a fever or experienced fever within the past 14 days?</p>
-        <input type="radio" id="yes" name="question1" value="Yes">
+        <input type="radio" name="question1">
         <label for="yes">Yes</label>
-        <input type="radio" id="no" name="question1" value="No">
+        <input type="radio" id="no1" name="question1" value="No">
         <label for="no">No</label>
       </div>
 
       <div class="questionWrapper">
         <p>Have you experienced a recent onset of respiratory problems, such as a cough or difficulty in breathing within the past 14 days?</p>
-        <input type="radio" id="yes" name="question2" value="Yes">
+        <input type="radio" name="question2">
         <label for="yes">Yes</label>
-        <input type="radio" id="no" name="question2" value="No">
+        <input type="radio" id="no2" name="question2" value="No">
         <label for="no">No</label>
       </div>
 
       <div class="questionWrapper">
         <p>Have you, within the past 14 days, traveled outside of the country?</p>
-        <input type="radio" id="yes" name="question3" value="Yes">
+        <input type="radio" name="question3">
         <label for="yes">Yes</label>
-        <input type="radio" id="no" name="question3" value="No">
+        <input type="radio" id="no3" name="question3" value="No">
         <label for="no">No</label>
       </div>
 
       <div class="questionWrapper">
         <p>Have you come into contact with a patient with confirmed 2019-nCoV infection within the past 14 days?</p>
-        <input type="radio" id="yes" name="question4" value="Yes">
+        <input type="radio" name="question4">
         <label for="yes">Yes</label>
-        <input type="radio" id="no" name="question4" value="No">
+        <input type="radio" id="no4" name="question4" value="No">
         <label for="no">No</label>
       </div>
 
       <div class="questionWrapper">
         <p>Have you come into contact with people from the neighborhood/region reported to be infected according to the World Health Organization who have recently documented fever or respiratory problems within the past 14 days?</p>
-        <input type="radio" id="yes" name="question5" value="Yes">
+        <input type="radio" name="question5">
         <label for="yes">Yes</label>
-        <input type="radio" id="no" name="question5" value="No">
+        <input type="radio" id="no5" name="question5" value="No">
         <label for="no">No</label>
       </div>
 
       <div class="questionWrapper">
         <p>Are there at least two people with documented experience of fever or respiratory problems within the last 14 days having close contact with you?</p>
-        <input type="radio" id="yes" name="question6" value="Yes">
+        <input type="radio" name="question6">
         <label for="yes">Yes</label>
-        <input type="radio" id="no" name="question6" value="No">
+        <input type="radio" id="no6" name="question6" value="No">
         <label for="no">No</label>
       </div>
 
       <div class="questionWrapper">
         <p>Have you recently participated in any gathering, meetings, or had close contact with many unacquainted people?</p>
-        <input type="radio" id="yes" name="question7" value="Yes">
+        <input type="radio" name="question7">
         <label for="yes">Yes</label>
-        <input type="radio" id="no" name="question7" value="No">
+        <input type="radio" id="no7" name="question7" value="No">
         <label for="no">No</label>
       </div>
 
-      <button type="button" class="btn btn-primary btn-lg btn-block">Submit</button>
+      <button type="button" id="submitButton" onclick="sendResponse()" class="btn btn-primary btn-lg btn-block">Submit</button>
     </div>
 
     <!----------------------------------------------->
@@ -139,5 +139,6 @@
     <!-- Control Script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="scripts/createQuestionnaire.js"></script>
+    <script src='scripts/responseSender.js'></script>
   </body>
 </html>
