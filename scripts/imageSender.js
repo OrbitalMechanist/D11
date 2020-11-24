@@ -10,7 +10,8 @@ firebase.auth().onAuthStateChanged(function (user) {
     }
 });
 
-var targetFileRef = storageRef.child("in.png"); 
+var targetFileRef = storageRef.child('in.png');
+//var targetFileRef = storageRef.child(auth.currentUser.uid + $('#title').html()); 
 
 
 function sendImage() {

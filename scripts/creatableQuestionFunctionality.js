@@ -17,11 +17,18 @@ function addQuestionBefore(target) {
 }
 
 function sendAllToDatabase() {
+    var inTitle = $('#title').html().replace("<br>", "");
+    var inSummary = $('#description').html().replace("<br>", "");
+    db.collection("creators").doc(auth.currentUser.uid).collection("questionnaires").doc(inTitle)
+        .set({
+            summary: inSummary
+        });
     $('.questionWrapper').each(getTextFromQuestion);
 }
 
 function getTextFromQuestion(index, element) {
     $(this).css("background-color: red");
+    var inTitle = $('#title').html().replace("<br>", "");
     var textFromArea = $(this).children("textarea").val();
-    sendToQuestionnaire('test', index.toString(), textFromArea);
+    sendToQuestionnaire(inTitle, index.toString(), textFromArea);
 }
