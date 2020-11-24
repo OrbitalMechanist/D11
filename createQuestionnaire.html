@@ -20,144 +20,88 @@
   </head>
 
   <body>
-    <!-------------------------------------->
-    <!-- The following is HTML for layout -->
-    <!-------------------------------------->
+      <!-------------------------------------->
+      <!-- The following is HTML for layout -->
+      <!-------------------------------------->
+      <!-- Header Navigation Bar -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="accountHome.html">Pre-arrival Checklist</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" href="login.html">About</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="login.html">login/signup</a>
+                  </li>
+              </ul>
+          </div>
+      </nav>
 
-    <!-- Header Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="accountHome.html">Pre-arrival Checklist</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="login.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.html">login/signup</a>
-          </li>
-        </ul>
+      <!-- Body of the questionnaire -->
+      <div id="questionnaireContainer">
+          <!-- Image Upload-->
+          <div class="guide">1. Upload a Banner:</div>
+          <div id="picture">
+              <div>
+                  <div>
+                      <div class="inputGroup">
+                          <input type="file" id="imgInp">
+                      </div>
+                  </div>
+                  <img id='uploadedImage' />
+              </div>
+          </div>
+
+          <!-- Headers of all sorts -->
+          <div class="guide">2. Add a title and description:</div>
+          <div id="title" contenteditable placeholder="Click to add a title..." oninput="if(this.innerHTML.trim() ==='<br>')this.innerHTML=''"></div>
+          <div id="description" contenteditable placeholder="Click to add a description..." oninput="if(this.innerHTML.trim() ==='<br>')this.innerHTML=''"></div>
+          <div class="guide">3. Review the questionnaire:</div>
+
+          <!-- Questions -->
+
+          <br id="insertionTarget" />
       </div>
-    </nav>
-
-    <!-- Save and Cancel Controls -->
-    <div id="controlContainer">
-      <div id="creationControls">
-        <a id="saveButton" onclick="sendImage()">Save</a>
-        <a href="accountHome.html">Cancel</a>
+      <!-- Save and Cancel Controls -->
+      <div id="controlContainer">
+          <div id="creationControls">
+              <a id="saveButton" onclick="sendImage(); sendAllToDatabase();">Save</a>
+              <a id="addQuestionTemp" onclick="addQuestionBefore('#insertionTarget')">Add Q</a>
+              <a href="accountHome.html">Cancel</a>
+          </div>
       </div>
-    </div>
+      <!----------------------------------------------->
+      <!-- JS: Boostrap, Firebase, API related    -->
+      <!----------------------------------------------->
+      <!-- Bootstrap libraries from CDN -->
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+              integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+              integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+      </script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+              integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+      </script>
 
-    <!-- Body of the questionnaire -->
-    <div id="questionnaireContainer">
-        <!-- Image Upload-->
-        <div class="guide">1. Upload a Banner:</div>
-        <div id="picture">
-            <div class="container">
-                <div>
-                    <div class="inputGroup">
-                        <input type="file" id="imgInp">
-                    </div>
-                </div>
-                <img id='uploadedImage' />
-            </div>
-        </div>
+      <!-- Firebase libraries from CDN -->
+      <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+      <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+      <!-- Your own Firebase API key information -->
+      <script src="scripts/firebase_api_preCovidChecklist.js"></script>
 
-        <!-- Headers of all sorts -->
-        <div class="guide">2. Add a title and description:</div>
-        <div id="title" contenteditable placeholder="Click to add a title..." oninput="if(this.innerHTML.trim() ==='<br>')this.innerHTML=''"></div>
-        <div id="description" contenteditable placeholder="Click to add a description..." oninput="if(this.innerHTML.trim() ==='<br>')this.innerHTML=''"></div>
-        <div class="guide">3. Review the questionnaire:</div>
-
-        <!-- Questions -->
-
-        <div class="questionWrapper">
-            <p>Do you have a fever or experienced fever within the past 14 days?</p>
-            <input type="radio" id="yes" name="question1" value="Yes">
-            <label for="yes">Yes</label>
-            <input type="radio" id="no" name="question1" value="No">
-            <label for="no">No</label>
-        </div>
-
-        <div class="questionWrapper">
-            <p>Have you experienced a recent onset of respiratory problems, such as a cough or difficulty in breathing within the past 14 days?</p>
-            <input type="radio" id="yes" name="question2" value="Yes">
-            <label for="yes">Yes</label>
-            <input type="radio" id="no" name="question2" value="No">
-            <label for="no">No</label>
-        </div>
-
-        <div class="questionWrapper">
-            <p>Have you, within the past 14 days, traveled outside of the country?</p>
-            <input type="radio" id="yes" name="question3" value="Yes">
-            <label for="yes">Yes</label>
-            <input type="radio" id="no" name="question3" value="No">
-            <label for="no">No</label>
-        </div>
-
-        <div class="questionWrapper">
-            <p>Have you come into contact with a patient with confirmed 2019-nCoV infection within the past 14 days?</p>
-            <input type="radio" id="yes" name="question4" value="Yes">
-            <label for="yes">Yes</label>
-            <input type="radio" id="no" name="question4" value="No">
-            <label for="no">No</label>
-        </div>
-
-        <div class="questionWrapper">
-            <p>Have you come into contact with people from the neighborhood/region reported to be infected according to the World Health Organization who have recently documented fever or respiratory problems within the past 14 days?</p>
-            <input type="radio" id="yes" name="question5" value="Yes">
-            <label for="yes">Yes</label>
-            <input type="radio" id="no" name="question5" value="No">
-            <label for="no">No</label>
-        </div>
-
-        <div class="questionWrapper">
-            <p>Are there at least two people with documented experience of fever or respiratory problems within the last 14 days having close contact with you?</p>
-            <input type="radio" id="yes" name="question6" value="Yes">
-            <label for="yes">Yes</label>
-            <input type="radio" id="no" name="question6" value="No">
-            <label for="no">No</label>
-        </div>
-
-        <div class="questionWrapper">
-            <p>Have you recently participated in any gathering, meetings, or had close contact with many unacquainted people?</p>
-            <input type="radio" id="yes" name="question7" value="Yes">
-            <label for="yes">Yes</label>
-            <input type="radio" id="no" name="question7" value="No">
-            <label for="no">No</label>
-        </div>
-    </div>
-
-    <!----------------------------------------------->
-    <!-- JS: Boostrap, Firebase, API related    -->
-    <!----------------------------------------------->
-
-   <!-- Bootstrap libraries from CDN -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
-
-    <!-- Firebase libraries from CDN -->
-    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
-
-    <!-- Your own Firebase API key information -->
-    <script src="scripts/firebase_api_preCovidChecklist.js"> </script>
-
-    <!-- Control Script -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="scripts/createQuestionnaire.js"></script>
-    <script src="scripts/imageSender.js"></script>
+      <!-- Control Script -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="scripts/createQuestionnaire.js"></script>
+      <script src="scripts/imageSender.js"></script>
+      <script src="scripts/dataSender.js"></script>
+      <script src="scripts/creatableQuestionFunctionality.js"></script>
   </body>
 </html>
