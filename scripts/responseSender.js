@@ -9,7 +9,8 @@ function sendResponse() {
     if (validateForm()) {
     pass = passCheck();
     console.log("attempting upload");
-    console.log(pass + "\n" + first + " " + last + "\n" + mail + "\n" + number);
+        console.log(pass + "\n" + first + " " + last + "\n" + mail + "\n" + number);
+        sendAnswersToDatabase();
     /* ================================================================
        From here, it needs to upload the variables as a Response.
        

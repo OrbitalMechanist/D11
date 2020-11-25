@@ -13,6 +13,7 @@ var targetUID = "QFy8GynXq1coXV8Wdj95gnHXF3f2";
 var targetDocRef = db.collection("creators").doc(targetUID).collection("questionnaires").doc("COVID-19 Checklist");
 var questions = targetDocRef.get();
 
+var topQuestionIndex = 0;
 
 $(document).ready(function () {
     var storageRef = storage.ref();
@@ -27,6 +28,7 @@ $(document).ready(function () {
             addQuestionBefore($('#submitButton'), index, doc.data().questionText);
             index = ++index;
         });
+        topQuestionIndex = index;
     });
     targetDocRef.get().then(function (gotten) {
         $('#description').html(gotten.data().summary);
@@ -37,10 +39,22 @@ $(document).ready(function () {
     });
 });
 
-function addQuestionBefore(target, index, inText) {
-    $(target).before((questionHTML.replace(/!INSERTVALHERE!/g, index)).replace("!QTEXT!", inText));
+function addQuestionBefore(target, questionIndex, inText) {
+    $(target).before((questionHTML.replace(/!INSERTVALHERE!/g, questionIndex)).replace("!QTEXT!", inText));
 }
 
-function getTextFromQuestion(index, element) {
-    addQuestionBefore($('#submitButton', index, element.data()));
+function sendAnswersToDatabase() { //TODO!!!
+    var sendToRef = db.collection("answers").doc(targetUID).collection("COVID-19 Checklist")
+        .doc($('#phoneNumber')[0].value);
+    var answerArray = [];
+    $('.questionWrapper').each(function (index, element) {
+        answerArray.push($('#yes' + element.id)[0].checked)
+        console.log(answerArray);
+    });
+    sendToRef.set({
+        firstName: $('#firstName')[0].value,
+        lastName: $('#lastName')[0].value,
+        email: $('#email')[0].value,
+        answerArray: answerArray
+    });
 }
