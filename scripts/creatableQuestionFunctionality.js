@@ -17,9 +17,9 @@ function addQuestionBefore(target) {
 }
 
 function sendAllToDatabase() {
-    var inTitle = $('#title').html().replace("<br>", "");
+    //var inTitle = $('#title').html().replace("<br>", "");
     var inSummary = $('#description').html().replace("<br>", "");
-    db.collection("creators").doc(auth.currentUser.uid).collection("questionnaires").doc(inTitle)
+    db.collection("creators").doc(auth.currentUser.uid).collection("questionnaires").doc("COVID-19 Checklist")
         .set({
             summary: inSummary
         });
@@ -28,7 +28,7 @@ function sendAllToDatabase() {
 
 function getTextFromQuestion(index, element) {
     $(this).css("background-color: red");
-    var inTitle = $('#title').html().replace("<br>", "");
+//    var inTitle = $('#title').html().replace("<br>", "");
     var textFromArea = $(this).children("textarea").val();
-    sendToQuestionnaire(inTitle, index.toString(), textFromArea);
+    sendToQuestionnaire("COVID-19 Checklist", index.toString(), textFromArea);
 }

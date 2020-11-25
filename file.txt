@@ -1,1 +1,55 @@
-Rob's modification to line one.
+<div class="questionWrapper">
+              <p>Do you have a fever or experienced fever within the past 14 days?</p>
+              <input type="radio" name="question1">
+              <label for="yes">Yes</label>
+              <input type="radio" id="no1" name="question1" value="No">
+              <label for="no">No</label>
+          </div>
+
+          <div class="questionWrapper">
+              <p>Have you experienced a recent onset of respiratory problems, such as a cough or difficulty in breathing within the past 14 days?</p>
+              <input type="radio" name="question2">
+              <label for="yes">Yes</label>
+              <input type="radio" id="no2" name="question2" value="No">
+              <label for="no">No</label>
+          </div>
+
+          <div class="questionWrapper">
+              <p>Have you, within the past 14 days, traveled outside of the country?</p>
+              <input type="radio" name="question3">
+              <label for="yes">Yes</label>
+              <input type="radio" id="no3" name="question3" value="No">
+              <label for="no">No</label>
+          </div>
+
+          <div class="questionWrapper">
+              <p>Have you come into contact with a patient with confirmed 2019-nCoV infection within the past 14 days?</p>
+              <input type="radio" name="question4">
+              <label for="yes">Yes</label>
+              <input type="radio" id="no4" name="question4" value="No">
+              <label for="no">No</label>
+          </div>
+
+          <div class="questionWrapper">
+              <p>Have you come into contact with people from the neighborhood/region reported to be infected according to the World Health Organization who have recently documented fever or respiratory problems within the past 14 days?</p>
+              <input type="radio" name="question5">
+              <label for="yes">Yes</label>
+              <input type="radio" id="no5" name="question5" value="No">
+              <label for="no">No</label>
+          </div>
+
+          <div class="questionWrapper">
+              <p>Are there at least two people with documented experience of fever or respiratory problems within the last 14 days having close contact with you?</p>
+              <input type="radio" name="question6">
+              <label for="yes">Yes</label>
+              <input type="radio" id="no6" name="question6" value="No">
+              <label for="no">No</label>
+          </div>
+
+          <div class="questionWrapper">
+              <p>Have you recently participated in any gathering, meetings, or had close contact with many unacquainted people?</p>
+              <input type="radio" name="question7">
+              <label for="yes">Yes</label>
+              <input type="radio" id="no7" name="question7" value="No">
+              <label for="no">No</label>
+          </div>
