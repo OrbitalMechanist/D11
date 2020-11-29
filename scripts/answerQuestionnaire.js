@@ -31,6 +31,7 @@ $(document).ready(function () {
         topQuestionIndex = index;
     });
     targetDocRef.get().then(function (gotten) {
+        $('#title').html(gotten.data().title);
         $('#description').html(gotten.data().summary);
     });
     var dlURL = targetFileRef.getDownloadURL().then(function (url) {

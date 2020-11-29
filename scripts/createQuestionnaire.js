@@ -1,4 +1,6 @@
 $(document).ready( function() {
+
+  //Upload an Image
   $(document).on('change', '.imgUploadButton :file', function() {
   var input = $(this),
   label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
@@ -15,15 +17,18 @@ $(document).ready( function() {
   } else {
     if( log ) alert(log);
   }
-
   });
+
+
+/*
     var storageRef = storage.ref();
     var targetFileRef = storageRef.child("in.png");
 //    var targetFileRef = storageRef.child(auth.currentUser.uid + $('#title').html());
-    var dlURL = targetFileRef.getDownloadURL().then(function (url) {
+
+ var dlURL = targetFileRef.getDownloadURL().then(function (url) {
         console.log(url);
         $('#uploadedImage').attr('src', url);
-    });
+    });*/
 
  function readURL(input) {
     if (input.files && input.files[0]) {

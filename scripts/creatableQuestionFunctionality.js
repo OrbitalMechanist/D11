@@ -17,11 +17,12 @@ function addQuestionBefore(target) {
 }
 
 function sendAllToDatabase() {
-    //var inTitle = $('#title').html().replace("<br>", "");
+    var inTitle = $('#title').html().replace("<br>", "");
     var inSummary = $('#description').html().replace("<br>", "");
     db.collection("creators").doc(auth.currentUser.uid).collection("questionnaires").doc("COVID-19 Checklist")
         .set({
-            summary: inSummary
+            summary: inSummary,
+            title: inTitle
         });
     $('.questionWrapper').each(getTextFromQuestion);
 }
