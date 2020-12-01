@@ -25,7 +25,7 @@ $(document).ready(function () {
         gotten.forEach(function (doc) {
             // for each document in collection, create a new question and give it
             console.log(doc.id, " => ", doc.data());
-            addQuestionBefore($('#submitButton'), index, doc.data().questionText);
+            addQuestionAfter($('#description'), index, doc.data().questionText);
             index = ++index;
         });
         topQuestionIndex = index;
@@ -40,8 +40,8 @@ $(document).ready(function () {
     });
 });
 
-function addQuestionBefore(target, questionIndex, inText) {
-    $(target).before((questionHTML.replace(/!INSERTVALHERE!/g, questionIndex)).replace("!QTEXT!", inText));
+function addQuestionAfter(target, questionIndex, inText) {
+    $(target).after((questionHTML.replace(/!INSERTVALHERE!/g, questionIndex)).replace("!QTEXT!", inText));
 }
 
 function sendAnswersToDatabase() { //TODO!!!

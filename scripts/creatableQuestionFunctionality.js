@@ -3,16 +3,16 @@
 var questionHTML = //not very "hyper"text right now, is it?
     '<div class="questionWrapper" id="!INSERTVALHERE!">' +
     '<textarea class="questionTextInput" type="text" placeholder="Question Text Here"/>' +
-    '<input type="radio" id="yes" name="!INSERTVALHERE!" value="Yes"/>' +
-    '<label for="yes">Yes</label>' +
-    '<input type="radio" id="no" name="!INSERTVALHERE!" value="No"/>' +
-    '<label for="no">No</label>' +
+    '<input type="radio" id="yes!INSERTVALHERE!" name="r!INSERTVALHERE!" value="Yes"/>' +
+    '<label for="yes!INSERTVALHERE!">Yes</label>' +
+    '<input type="radio" id="no!INSERTVALHERE!" name="r!INSERTVALHERE!" value="No"/>' +
+    '<label for="no!INSERTVALHERE!">No</label>' +
     '</div>';
 
 var nextQuestionIndex = 0;
 
 function addQuestionBefore(target) {
-    $(target).before(questionHTML.replace("!INSERTVALHERE!", nextQuestionIndex));
+    $(target).before(questionHTML.replace(/!INSERTVALHERE!/g, nextQuestionIndex));
     nextQuestionIndex = ++nextQuestionIndex;
 }
 
