@@ -16,7 +16,7 @@ const injectable =
     '</div>' +
     '</div>';
 
-const answerInjectable = '<div>' +
+const answerInjectable = '<div class="responseQuestion">' +
     '<p class="responseQuestionDisplay">' +
     '!QUESTIONTEXT!' +
     '</p>' +
