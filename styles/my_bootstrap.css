@@ -1,3 +1,24 @@
+.navbar-dark .navbar-brand {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 5em;
+    height: 5em;
+    vertical-align: middle;
+    content: "";
+    background: no-repeat center center;
+    background-size: 100% 100%;
+}
+
+.nav-link {
+    display: block;
+    padding: .5rem 1rem;
+    font-size: 2rem;
+}
+
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
@@ -13,6 +34,7 @@
   color: #fff;
   background-color: #00425b;
   border-color: #00425b;
+  font-size: 3rem;
 }
 
 .btn-primary:hover {

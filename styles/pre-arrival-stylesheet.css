@@ -5,7 +5,11 @@
 
   .guide {
     font-size: 2rem;
-    text-align: left;
+    text-align: center;
+  }
+
+  .inputGroup {
+    font-size: 2rem;
   }
 
   #creationControls > a {
@@ -16,7 +20,7 @@
     width: 10rem;
     border-radius: 5%;
     color: white;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 500;
     text-decoration: none;
     text-align: center;
@@ -29,7 +33,7 @@
     width: 30rem;
     border-radius: 5%;
     color: white;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 500;
     text-decoration: none;
     text-align: center;
@@ -45,6 +49,10 @@
     z-index: 1;
     width: 100%;
     text-align: center;
+  }
+
+  #description {
+    font-size: 1.5rem;
   }
 
   #creationControls {
@@ -85,6 +93,14 @@
     margin-top: 1rem;
  }
 
+  .responseQuestionDisplay {
+    font-size: 1.5rem;
+  }
+
+  .Answer {
+    font-size: 2rem;
+  }
+
   #newQuestion {
     margin-top: 2rem;
     cursor: pointer;
@@ -99,7 +115,7 @@
   }
 
   .questionWrapper > * {
-    font-size: 1.3rem;
+    font-size: 2rem;
   }
 
   [contenteditable][placeholder]:empty:before {
@@ -116,16 +132,30 @@
   #title {
     overflow: auto;
     font-weight: bold;
-    font-size: 1.6rem;
+    font-size: 2rem;
   }
 
-  #description {
-    margin-bottom: 5rem;
+  .form-control {
+    display: block;
+    width: 97%;
+    margin-left: auto;
+    margin-right: auto;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 2.2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   }
 
   #description[contenteditable] {
     overflow: auto;
-    font-size: 1.3rem;
+    font-size: 2rem;
     text-align: left;
   }
   /* Firebase Login Container */
@@ -144,7 +174,8 @@
   }
 
   #uploadedImage {
-    max-width: 100%;
+    display: block;
+    max-width: 30rem;
     max-height: 30rem;
   }
 
@@ -169,7 +200,7 @@
 
   .responseTakerInfo {
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
       /************************************************************************
