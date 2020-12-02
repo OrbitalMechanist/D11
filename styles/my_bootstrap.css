@@ -21,9 +21,19 @@
 
 .jumbotron {
   padding: 2rem 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
+  height: 100vh;
   background-color: #8FDBD1;
   border-radius: 0.3rem;
+}
+
+.lead {
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.summary {
+  font-size: 2rem;
 }
 
 .bg-dark {
