@@ -68,8 +68,4 @@ function addItemAfter(target, questionIndex, doc) {
 
     return $(((injectable.replace(/collapsar/g, ("collapsar" + questionIndex))).replace("!NAME!", doc.data().firstName
         + " " + doc.data().lastName).replace("!PHONE!", doc.id).replace("!EMAIL!", doc.data().email))).insertAfter($(target));
-
-    /* $(target).after(((injectable.replace(/collapsar/g, ("collapsar" + questionIndex))).replace("!NAME!", doc.data().firstName
-        + " " + doc.data().lastName).replace("!PHONE!", doc.id).replace("!EMAIL!", doc.data().email))); */
-    
 }

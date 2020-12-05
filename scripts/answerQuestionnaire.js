@@ -1,6 +1,6 @@
 // JavaScript source code
 
-var questionHTML = //not very "hyper"text right now, is it?
+var questionHTML =
     '<div class="questionWrapper" id="!INSERTVALHERE!">' +
     '<p>!QTEXT!<p/>' +
     '<input type="radio" id="yes!INSERTVALHERE!" name="!INSERTVALHERE!" value="Yes"/>' +
@@ -18,8 +18,7 @@ var topQuestionIndex = 0;
 $(document).ready(function () {
     var storageRef = storage.ref();
     var targetFileRef = storageRef.child("in.png");
-    //    var targetFileRef = storageRef.child(auth.currentUser.uid + $('#title').html());
-    
+
     targetDocRef.collection("questions").where("questionText", "!=", "").get().then(function (gotten) {
         var index = 0;
         gotten.forEach(function (doc) {
@@ -44,7 +43,7 @@ function addQuestionAfter(target, questionIndex, inText) {
     $(target).after((questionHTML.replace(/!INSERTVALHERE!/g, questionIndex)).replace("!QTEXT!", inText));
 }
 
-function sendAnswersToDatabase() { //TODO!!!
+function sendAnswersToDatabase() {
     var sendToRef = db.collection("answers").doc(targetUID).collection("COVID-19 Checklist")
         .doc($('#phoneNumber')[0].value);
     var answerArray = [];

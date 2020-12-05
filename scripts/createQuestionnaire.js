@@ -19,17 +19,6 @@ $(document).ready( function() {
   }
   });
 
-
-/*
-    var storageRef = storage.ref();
-    var targetFileRef = storageRef.child("in.png");
-//    var targetFileRef = storageRef.child(auth.currentUser.uid + $('#title').html());
-
- var dlURL = targetFileRef.getDownloadURL().then(function (url) {
-        console.log(url);
-        $('#uploadedImage').attr('src', url);
-    });*/
-
  function readURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();

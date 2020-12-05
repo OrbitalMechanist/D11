@@ -1,6 +1,6 @@
 // JavaScript source code
 
-var questionHTML = //not very "hyper"text right now, is it?
+var questionHTML =
     '<div class="questionWrapper" id="!INSERTVALHERE!">' +
     '<textarea class="questionTextInput" type="text" placeholder="Question Text Here"/>' +
     '<input type="radio" id="yes!INSERTVALHERE!" name="r!INSERTVALHERE!" value="Yes"/>' +
