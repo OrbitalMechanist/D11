@@ -19,12 +19,12 @@ $(document).ready(function () {
     var storageRef = storage.ref();
     var targetFileRef = storageRef.child("in.png");
 
-    targetDocRef.collection("questions").where("questionText", "!=", "").get().then(function (gotten) {
+    targetDocRef.collection("questions").get().then(function (gotten) {
         var index = 0;
         gotten.forEach(function (doc) {
             // for each document in collection, create a new question and give it
             console.log(doc.id, " => ", doc.data());
-            addQuestionAfter($('#description'), index, doc.data().questionText);
+            addQuestionBefore($('#submitButton'), index, doc.data().questionText);
             index = ++index;
         });
         topQuestionIndex = index;
@@ -39,8 +39,8 @@ $(document).ready(function () {
     });
 });
 
-function addQuestionAfter(target, questionIndex, inText) {
-    $(target).after((questionHTML.replace(/!INSERTVALHERE!/g, questionIndex)).replace("!QTEXT!", inText));
+function addQuestionBefore(target, questionIndex, inText) {
+    $(target).before((questionHTML.replace(/!INSERTVALHERE!/g, questionIndex)).replace("!QTEXT!", inText));
 }
 
 function sendAnswersToDatabase() {
